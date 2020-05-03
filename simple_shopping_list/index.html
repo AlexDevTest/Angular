@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='myShoppingList'>
+<head>
+  <meta charset="utf-8">
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <title>My Shopping List</title>
+</head>
+<body>
+  <div ng-cloak ng-controller="myCtrl">
+    <div class="card border-dark" style="max-width:400px;">
+      <div class="card-header bg-success">
+        My Shopping List
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li ng-repeat="product in products" class="list-group-item list-group-item-action list-group-item-secondary">
+            <span class="text-left">{{product}}</span>
+            <span class="text-right" ng-click="removeProduct($index)">&times;</span>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer bg-success">
+        <div class="input-group">
+          <input type="text"  class="form-control" ng-model="new_product" placeholder="Add shopping items here">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-dark bg-light" ng-click="addProduct()">Add</button>
+          </div>
+        </div>
+        <p class="text-danger">{{error}}</p>
+    </div>
+</body>
+</html>
